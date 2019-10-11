@@ -16,8 +16,6 @@
 	html,
 	body {
 		height: 100%;
-
-		
 	}
 
 	a,
@@ -39,19 +37,31 @@
 		height: 1%
 	}
 
+	canvas {
+		position: absolute;
+		top: 0;
+		left: 0;
+		display: block;width: 100%;height: 100%;
+		z-index: 0;
+	}
+       
 	.map-service {
-		min-height: 620px;
-		position: relative;
+		/* background: url(img/map_balck_whole_bg.jpg) center no-repeat;
+		background-size: cover; */
 		height: 100%;
-		background: url(img/map_balck_whole_bg.jpg) center no-repeat;
-		background-size: cover;
+		background-color: #000;
 	}
 
 	.china-map {
 		width: 748px;
-		height: 618px;
+		min-height: 618px;
 		background: url(img/map_black_bg.png) center no-repeat;
-		position: relative;
+		position: absolute;
+		top: 50%;
+		left: 0;
+		right: 0;
+		margin: -309px auto 0  auto;
+		z-index: 9999;
 	}
 
 	.region-list {
@@ -404,82 +414,85 @@
 
 <body>
 	<div class="map-service">
-			<div class="china-map">
-				<div class="region-list postition-1">
-					<div class="area-box">
-						<span class="dot"></span>
-						<span class="pulse delay-01"></span>
-						<span class="pulse delay-02"></span>
-					</div>
-				</div>
-				<div class="region-list active postition-2 online-node">
-					<div class="area-box"><span class="dot"></span><span class="pulse delay-06"></span>
-						<span class="pulse delay-05"></span>
-						<span class="pulse delay-04"></span></div>
-					<div class="show-regin"><span>四川</span></div>
-				</div>
-				<div class="region-list postition-3">
-					<div class="area-box"><span class="dot"></span><span class="pulse delay-01"></span>
-						<span class="pulse delay-02"></span>
-					</div>
-				</div>
-				<div class="region-list waite postition-4 waite-node">
-					<div class="area-box"><span class="dot"></span><span class="pulse delay-01"></span>
-						<span class="pulse delay-02"></span>
-					</div>
-					<div class="show-regin"><span>陕西</span></div>
-				</div>
-				<div class="region-list waite postition-5 waite-node">
-					<div class="area-box"><span class="dot"></span><span class="pulse delay-01"></span>
-						<span class="pulse delay-02"></span>
-					</div>
-					<div class="show-regin"><span>湖北</span></div>
-				</div>
-				<div class="region-list active postition-6 online-node">
-					<div class="area-box"><span class="dot"></span><span class="pulse delay-06"></span>
-						<span class="pulse delay-05"></span>
-						<span class="pulse delay-04"></span></div>
-					<div class="show-regin"><span>广东</span></div>
-				</div>
-				<div class="region-list active postition-13 online-node">
-					<div class="area-box"><span class="dot"></span><span class="pulse delay-04"></span>
-						<span class="pulse delay-05"></span>
-						<span class="pulse delay-03"></span></div>
-					<div class="show-regin"><span>内蒙古</span></div>
-				</div>
-				<div class="region-list  active  postition-11 online-node">
-					<div class="area-box"><span class="dot"></span><span class="pulse delay-06"></span>
-						<span class="pulse delay-05"></span>
-						<span class="pulse delay-04"></span></div>
-					<div class="show-regin"><span>山东</span></div>
-				</div>
-				<div class="region-list active postition-7 online-node">
-					<div class="area-box"><span class="dot"></span><span class="pulse delay-10"></span>
-						<span class="pulse delay-09"></span>
-						<span class="pulse delay-08"></span></div>
-					<div class="show-regin"><span>辽宁</span></div>
-				</div>
-				<div class="region-list active postition-8 online-node">
-					<div class="area-box"><span class="dot"></span><span class="pulse delay-06"></span>
-						<span class="pulse delay-05"></span>
-						<span class="pulse delay-04"></span></div>
-					<div class="show-regin"><span>北京</span></div>
-				</div>
-				<div class="region-list active postition-9 online-node">
-					<div class="area-box"><span class="dot"></span><span class="pulse delay-10"></span>
-						<span class="pulse delay-09"></span>
-						<span class="pulse delay-08"></span></div>
-					<div class="show-regin"><span>江苏</span></div>
-				</div>
-				<div class="region-list active postition-10 online-node">
-					<div class="area-box"><span class="dot"></span><span class="pulse delay-06"></span>
-						<span class="pulse delay-05"></span>
-						<span class="pulse delay-04"></span></div>
-					<div class="show-regin"><span>香港</span></div>
-				</div>
+		<canvas id="canvas"></canvas>
 
+		<div class="china-map">
+			<div class="region-list postition-1">
+				<div class="area-box">
+					<span class="dot"></span>
+					<span class="pulse delay-01"></span>
+					<span class="pulse delay-02"></span>
+				</div>
 			</div>
+			<div class="region-list active postition-2 online-node">
+				<div class="area-box"><span class="dot"></span><span class="pulse delay-06"></span>
+					<span class="pulse delay-05"></span>
+					<span class="pulse delay-04"></span></div>
+				<div class="show-regin"><span>四川</span></div>
+			</div>
+			<div class="region-list postition-3">
+				<div class="area-box"><span class="dot"></span><span class="pulse delay-01"></span>
+					<span class="pulse delay-02"></span>
+				</div>
+			</div>
+			<div class="region-list waite postition-4 waite-node">
+				<div class="area-box"><span class="dot"></span><span class="pulse delay-01"></span>
+					<span class="pulse delay-02"></span>
+				</div>
+				<div class="show-regin"><span>陕西</span></div>
+			</div>
+			<div class="region-list waite postition-5 waite-node">
+				<div class="area-box"><span class="dot"></span><span class="pulse delay-01"></span>
+					<span class="pulse delay-02"></span>
+				</div>
+				<div class="show-regin"><span>湖北</span></div>
+			</div>
+			<div class="region-list active postition-6 online-node">
+				<div class="area-box"><span class="dot"></span><span class="pulse delay-06"></span>
+					<span class="pulse delay-05"></span>
+					<span class="pulse delay-04"></span></div>
+				<div class="show-regin"><span>广东</span></div>
+			</div>
+			<div class="region-list active postition-13 online-node">
+				<div class="area-box"><span class="dot"></span><span class="pulse delay-04"></span>
+					<span class="pulse delay-05"></span>
+					<span class="pulse delay-03"></span></div>
+				<div class="show-regin"><span>内蒙古</span></div>
+			</div>
+			<div class="region-list  active  postition-11 online-node">
+				<div class="area-box"><span class="dot"></span><span class="pulse delay-06"></span>
+					<span class="pulse delay-05"></span>
+					<span class="pulse delay-04"></span></div>
+				<div class="show-regin"><span>山东</span></div>
+			</div>
+			<div class="region-list active postition-7 online-node">
+				<div class="area-box"><span class="dot"></span><span class="pulse delay-10"></span>
+					<span class="pulse delay-09"></span>
+					<span class="pulse delay-08"></span></div>
+				<div class="show-regin"><span>辽宁</span></div>
+			</div>
+			<div class="region-list active postition-8 online-node">
+				<div class="area-box"><span class="dot"></span><span class="pulse delay-06"></span>
+					<span class="pulse delay-05"></span>
+					<span class="pulse delay-04"></span></div>
+				<div class="show-regin"><span>北京</span></div>
+			</div>
+			<div class="region-list active postition-9 online-node">
+				<div class="area-box"><span class="dot"></span><span class="pulse delay-10"></span>
+					<span class="pulse delay-09"></span>
+					<span class="pulse delay-08"></span></div>
+				<div class="show-regin"><span>江苏</span></div>
+			</div>
+			<div class="region-list active postition-10 online-node">
+				<div class="area-box"><span class="dot"></span><span class="pulse delay-06"></span>
+					<span class="pulse delay-05"></span>
+					<span class="pulse delay-04"></span></div>
+				<div class="show-regin"><span>香港</span></div>
+			</div>
+
+		</div>
 	</div>
+	<script src="./index.js" async></script>
 </body>
 
 </html>
